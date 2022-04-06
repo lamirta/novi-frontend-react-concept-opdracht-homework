@@ -1,0 +1,17 @@
+.header {
+    background-color: #dd3038;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: #fff;
+}
+
+.navlink {
+    margin: 20px;
+    color: #fff;
+    text-decoration: none;
+
+}
