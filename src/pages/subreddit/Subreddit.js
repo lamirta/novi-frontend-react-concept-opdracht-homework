@@ -12,7 +12,7 @@ function Subreddit() {
     useEffect(() => {
     async function fetchData() {
         try {
-            const result = await axios.get(`https://www.reddit.com/r/memes/about.json`);
+            const result = await axios.get(`https://www.reddit.com/r/${subredditId}/about.json`);
             console.log(result.data)
             setPost(result.data);
 
@@ -20,19 +20,23 @@ function Subreddit() {
             console.error(e);
         }
     }
-    fetchData(post);
+    fetchData();
     }, []);
-
-    // hieronder nog uitzoeken hoe ik de data laat zien op de pagina..
-    // met allen {post} vliegt ie eruit.
 
     return (
         <>
-            <h1>Deze pagina gaat over {subredditId}</h1>
-            <p>Deze subreddit post</p>
+            {Object.keys(post).length > 0 && <article>
+                <h1>Title {subredditId}</h1>
+                <p>{post.data.title}</p>
+                <h1>Description</h1>
+                <p>{post.data.public_description}</p>
+                <h1>Number of subscribers:</h1>
+                <p>{post.data.subscribers}</p>
+            </article>
+            }
             <button><Link to="/">Take me back</Link></button>
         </>
     );
-};
+}
 
 export default Subreddit;

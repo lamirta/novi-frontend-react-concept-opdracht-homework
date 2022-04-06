@@ -11,8 +11,11 @@ import Subreddit from "./pages/subreddit/Subreddit";
 
 function App() {
   return (
-      <div>
+      <>
+          <div className="App-header">
           <Header/>
+
+          </div>
           <Switch>
               <Route exact path='/'>
                   <Home/>
@@ -21,7 +24,7 @@ function App() {
                   <Subreddit/>
               </Route>
           </Switch>
-      </div>
+      </>
   );
 }
 
